@@ -1,0 +1,22 @@
+{
+    "en": {
+      "name": "english",
+      "plurals": "nplurals=2; plural=(n != 1);"
+    },
+    "en_GB": {
+      "name": "english GB",
+      "plurals": "nplurals=2; plural=(n != 1);"
+    },
+    "fr": {
+      "name": "french",
+      "plurals": "nplurals=2; plural=(n != 1);"
+    },
+    "de": {
+      "name": "german",
+      "plurals": "nplurals=2; plural=(n != 1);"
+    },
+    "ru": {
+      "name": "russian",
+      "plurals": "nplurals=2; plural=(n != 1);"
+    }
+}
