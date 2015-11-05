@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
-	grunt.registerMultiTask('i18n', 'The best Grunt plugin ever.', function() {
+	grunt.registerMultiTask('exportlanguages', 'The best Grunt plugin ever.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
       paths: {
@@ -36,6 +36,12 @@ module.exports = function(grunt) {
         }
       }
 		});
+
+
+grunt.config.data.mkdir.exportlanguages_mkdir = {options: {
+	create: [options.paths.i18n.templates]
+}};
+grunt.task.run('mkdir:exportlanguages_mkdir');
 
 
 

@@ -44,7 +44,10 @@ module.exports = function(grunt) {
 							json: 'test/src/i18n'
 						}
 					}
-				}
+				},
+        ficken:{
+
+        }
 			},
 			// Unit tests.
 			nodeunit: {
@@ -79,7 +82,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', ['clean', 'i18n', 'nodeunit']);
 
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['mkdir']);
+	grunt.registerTask('default', ['mkdir:i18n']);
 
 
 
