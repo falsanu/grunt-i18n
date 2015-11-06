@@ -31,23 +31,39 @@ module.exports = function(grunt) {
 			},
 
 			// Configuration to be run (and then tested).
-			i18n: {
-				exportlanguages: {
+			exportlanguages: {
+				test: {
 					options: {
-						pathToConfig: 'test/languages.json',
-						source: 'test/src',
-						translations: 'test/src/i18n',
-						i18n: {
-							base: 'i18n',
-							templates: 'test/i18n/templates/LC_MESSAGES',
-							pot: 'test/i18n/templates/LC_MESSAGES/messages.pot',
-							json: 'test/src/i18n'
+						paths: {
+							pathToConfig: 'test/fixtures/languages.json',
+							source: 'tmp/src',
+							translations: 'tmp/src/i18n',
+							i18n: {
+								base: 'tmp/i18n',
+								templates: 'tmp/i18n/templates/LC_MESSAGES',
+								pot: 'tmp/i18n/templates/LC_MESSAGES/messages.pot',
+								json: 'tmp/src/i18n'
+							}
 						}
 					}
-				},
-        ficken:{
-
-        }
+				}
+			},
+			importlanguages: {
+				tests: {
+					options: {
+						paths: {
+							pathToConfig: 'test/languages.json',
+							source: 'test/src',
+							translations: 'test/src/i18n',
+							i18n: {
+								base: 'test/i18n',
+								templates: 'test/i18n/templates/LC_MESSAGES',
+								pot: 'test/i18n/templates/LC_MESSAGES/messages.pot',
+								json: 'test/src/i18n'
+							}
+						}
+					}
+				}
 			},
 			// Unit tests.
 			nodeunit: {
@@ -75,14 +91,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
-	grunt.loadNpmTasks('grunt-mkdir');
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'i18n', 'nodeunit']);
+	grunt.registerTask('test', ['clean', 'exportlanguages', 'nodeunit']);
 
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['mkdir:i18n']);
+	grunt.registerTask('default', ['exportlanguages:tests']);
 
 
 

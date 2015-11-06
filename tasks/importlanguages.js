@@ -24,63 +24,39 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('importlanguages', 'The best Grunt plugin ever.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
-      paths: {
-        pathToConfig:'test/languages.json',
-        source: 'test/src',
-        translations: 'test/src/i18n',
-        i18n: {
-          base: 'i18n',
-          templates: 'test/i18n/templates/LC_MESSAGES',
-          pot: 'test/i18n/templates/LC_MESSAGES/messages.pot',
-          json: 'test/src/i18n'
-        }
-      }
+			paths: {
+				pathToConfig: 'test/languages.json',
+				source: 'test/src',
+				translations: 'test/src/i18n',
+				i18n: {
+					base: 'i18n',
+					templates: 'test/i18n/templates/LC_MESSAGES',
+					pot: 'test/i18n/templates/LC_MESSAGES/messages.pot',
+					json: 'test/src/i18n'
+				}
+			}
 		});
 
+		grunt.loadNpmTasks('grunt-contrib-clean');
+		grunt.loadNpmTasks('grunt-contrib-copy');
 
-		// //pseudo Target
-		// grunt.config.data.mkdir.importlanguages_mkdir = {
-		// 	options: {
-		// 		create: ['<%= paths.i18n.templates %>']
-		// 	}
-		// };
-		//
-		// grunt.task.run('mkdir:importlanguages_mkdir');
+		grunt.config.data.clean.test = options.paths.i18n.json;
+		grunt.task.run('clean:test');
 
 
-		//
-		// 'mkdir:i18n',
-		//     'xgettext',
-		//     'abideCreate',
-		//     'abideMerge'
+		grunt.config.data.copy = {
+			test: {
+				files: [{
+					src: options.paths.i18n.base + '/**/*.po',
+					dest: options.paths.source,
+					expand: true,
+					flatten: false,
+					filter: nopFilter
+				}]
+			}
+		};
+		grunt.task.run('copy:test');
 
-
-		//
-		// // Iterate over all specified file groups.
-		// this.files.forEach(function(f) {
-		// 	// Concat specified files.
-		// 	var src = f.src.filter(function(filepath) {
-		// 		// Warn on and remove invalid source files (if nonull was set).
-		// 		if (!grunt.file.exists(filepath)) {
-		// 			grunt.log.warn('Source file "' + filepath + '" not found.');
-		// 			return false;
-		// 		} else {
-		// 			return true;
-		// 		}
-		// 	}).map(function(filepath) {
-		// 		// Read file source.
-		// 		return grunt.file.read(filepath);
-		// 	}).join(grunt.util.normalizelf(options.separator));
-		//
-		// 	// Handle options.
-		// 	src += options.punctuation;
-		//
-		// 	// Write the destination file.
-		// 	grunt.file.write(f.dest, src);
-		//
-		// 	// Print a success message.
-		// 	grunt.log.writeln('File "' + f.dest + '" created.');
-		// });
 	});
 
 };
