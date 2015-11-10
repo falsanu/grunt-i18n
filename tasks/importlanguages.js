@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 		});
 
 		grunt.config.data.clean.test = {
-			src: options.paths.source,
+			src: options.paths.i18n.json,
 			force: true
 		};
 
