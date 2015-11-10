@@ -18,14 +18,9 @@ var nopFilter = function(filename) {
 
 module.exports = function(grunt) {
 
-	// require('load-grunt-subtasks')(grunt, {
-	// 	 pattern: 'grunt-*',
-	// 	 base: './no'
-	// });
-	// Please see the Grunt documentation for more information regarding task
-	// creation: http://gruntjs.com/creating-tasks
-
-	// require('load-grunt-tasks')(grunt);
+	require('../node_modules/grunt-xgettext/tasks/xgettext.js')(grunt);
+	require('../node_modules/grunt-i18n-abide/tasks/abidecreate.js')(grunt);
+	require('../node_modules/grunt-i18n-abide/tasks/abidemerge.js')(grunt);
 
 	grunt.registerMultiTask('exportlanguages', 'Create .po/.pot-Files from translations.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
