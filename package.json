@@ -51,7 +51,7 @@
     "grunt-mkdir": "^0.1.2",
     "grunt-po2json": "^0.3.0",
     "grunt-xgettext": "^0.3.5"
-  }
+  },
   "keywords": [
     "gruntplugin"
   ]
