@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 	// require('load-grunt-tasks')(grunt);
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
-	
+
 	grunt.registerMultiTask('importlanguages', 'Imports PO-Files into given project.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
@@ -37,7 +37,11 @@ module.exports = function(grunt) {
 			}
 		});
 
-		grunt.config.data.clean.test = options.paths.i18n.json;
+		grunt.config.data.clean.test = {
+			src: options.paths.source,
+			force: true
+		};
+
 		grunt.task.run('clean:test');
 
 		if (!grunt.config.data.copy) {

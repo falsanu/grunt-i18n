@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 							source: 'test/src',
 							translations: 'test/src/i18n',
 							i18n: {
-								base: 'test/i18n',
+								base: 'tmp/i18n',
 								templates: 'test/i18n/templates/LC_MESSAGES',
 								pot: 'test/i18n/templates/LC_MESSAGES/messages.pot',
 								json: 'test/src/i18n'
@@ -93,6 +93,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
 	grunt.loadNpmTasks('grunt-mkdir');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
