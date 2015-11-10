@@ -36,7 +36,8 @@
     "grunt-mkdir": "^0.1.2",
     "grunt-po2json": "^0.3.0",
     "grunt-xgettext": "^0.3.5",
-    "load-grunt-config": "*"
+    "load-grunt-config": "*",
+    "load-grunt-subtasks": "^0.1.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"
