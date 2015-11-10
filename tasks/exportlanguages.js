@@ -27,7 +27,6 @@ module.exports = function(grunt) {
 			paths: {
 				pathToConfig: null,
 				source: 'test/src',
-				translations: 'test/src/i18n',
 				i18n: {
 					base: 'test/i18n',
 					templates: 'test/i18n/templates/LC_MESSAGES',
@@ -78,7 +77,7 @@ module.exports = function(grunt) {
 		grunt.log.writeln("Creating i18n template folder: " + options.paths.i18n.templates);
 		grunt.log.writeln("creating .po-files for languages: " + languages);
 		grunt.log.writeln("merging new messages in existing .po-files for languages: " + languages);
-		
+
 		grunt.loadNpmTasks('grunt-mkdir');
 		grunt.loadNpmTasks('grunt-xgettext');
 		grunt.loadNpmTasks('grunt-i18n-abide');
