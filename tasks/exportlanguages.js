@@ -18,6 +18,9 @@ var nopFilter = function(filename) {
 
 module.exports = function(grunt) {
 
+	require('load-grunt-subtasks')(grunt,{
+		 pattern: 'grunt-*'
+	});
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
@@ -77,12 +80,6 @@ module.exports = function(grunt) {
 		grunt.log.writeln("Creating i18n template folder: " + options.paths.i18n.templates);
 		grunt.log.writeln("creating .po-files for languages: " + languages);
 		grunt.log.writeln("merging new messages in existing .po-files for languages: " + languages);
-
-		grunt.loadNpmTasks('grunt-mkdir');
-		grunt.loadNpmTasks('grunt-xgettext');
-		grunt.loadNpmTasks('grunt-i18n-abide');
-
-
 
 		if(!grunt.config.data.mkdir) {
 			grunt.config.data.mkdir = {};

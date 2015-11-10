@@ -18,6 +18,10 @@ var nopFilter = function(filename) {
 
 module.exports = function(grunt) {
 
+	require('load-grunt-subtasks')(grunt,{
+		 pattern: 'grunt-*'
+	});
+
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
@@ -35,9 +39,6 @@ module.exports = function(grunt) {
 				}
 			}
 		});
-
-		grunt.loadNpmTasks('grunt-contrib-clean');
-		grunt.loadNpmTasks('grunt-contrib-copy');
 
 		grunt.config.data.clean.test = options.paths.i18n.json;
 		grunt.task.run('clean:test');
