@@ -25,6 +25,7 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('exportlanguages', 'Create .po/.pot-Files from translations.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
+			enableAbideMerge:false,
 			paths: {
 				pathToConfig: null,
 				source: 'test/src',
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
 			},
 		});
 
-		if ( !options.paths.pathToConfig || options.paths.pathToConfig == '' ) {
+		if (!options.paths.pathToConfig || options.paths.pathToConfig == '') {
 			grunt.fail.warn('No language configuration file given');
 		}
 
@@ -85,7 +86,7 @@ module.exports = function(grunt) {
 
 
 
-		if(!grunt.config.data.mkdir) {
+		if (!grunt.config.data.mkdir) {
 			grunt.config.data.mkdir = {};
 		}
 		// Task for creating translation folder
@@ -118,18 +119,18 @@ module.exports = function(grunt) {
 		grunt.task.run('abideCreate:default');
 
 
-
-		// task for merging new translations in existing ones
-		grunt.config.data.abideMerge = {
-			default: { // Target name.
-				options: {
-					template: options.abideMerge.options.template,
-					localeDir: options.abideMerge.options.localeDir,
+		if (options.enableAbideMerge) {
+			// task for merging new translations in existing ones
+			grunt.config.data.abideMerge = {
+				default: { // Target name.
+					options: {
+						template: options.abideMerge.options.template,
+						localeDir: options.abideMerge.options.localeDir,
+					}
 				}
 			}
+			grunt.task.run('abideMerge:default');
 		}
-		grunt.task.run('abideMerge:default');
-
 
 
 

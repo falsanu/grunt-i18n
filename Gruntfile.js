@@ -34,6 +34,7 @@ module.exports = function(grunt) {
 			exportlanguages: {
 				test: {
 					options: {
+						enableAbideMerge:true,
 						paths: {
 							pathToConfig: 'test/fixtures/languages.json',
 							source: 'tmp/src',
@@ -91,6 +92,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks('grunt-mkdir');
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
