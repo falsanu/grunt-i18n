@@ -37,7 +37,9 @@
     "load-grunt-config": "*"
   },
   "peerDependencies": {
-    "grunt": "~0.4.5",
+    "grunt": "~0.4.5"
+  },
+  "dependencies" : {
     "grunt-i18n-abide": "0.0.16",
     "grunt-po2json": "^0.3.0",
     "grunt-xgettext": "^0.3.5"
