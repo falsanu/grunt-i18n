@@ -84,11 +84,14 @@ module.exports = function(grunt) {
 
 
 
+		if(!grunt.config.data.mkdir) {
+			grunt.config.data.mkdir = {};
+		}
 		// Task for creating translation folder
-		grunt.config.data.mkdir = {
+		grunt.config.data.mkdir.exportlanguages = {
 			create: [options.paths.i18n.templates]
 		};
-		grunt.task.run('mkdir');
+		grunt.task.run('mkdir:exportlanguages');
 
 
 		// task for extracting need-to-translate-texts from code

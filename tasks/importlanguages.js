@@ -42,19 +42,19 @@ module.exports = function(grunt) {
 		grunt.config.data.clean.test = options.paths.i18n.json;
 		grunt.task.run('clean:test');
 
-
-		grunt.config.data.copy = {
-			test: {
-				files: [{
-					src: options.paths.i18n.base + '/**/*.po',
-					dest: options.paths.source,
-					expand: true,
-					flatten: false,
-					filter: nopFilter
-				}]
-			}
+		if (!grunt.config.data.copy) {
+			grunt.config.data.copy = {};
+		}
+		grunt.config.data.copy.importlanguages = {
+			files: [{
+				src: options.paths.i18n.base + '/**/*.po',
+				dest: options.paths.source,
+				expand: true,
+				flatten: false,
+				filter: nopFilter
+			}]
 		};
-		grunt.task.run('copy:test');
+		grunt.task.run('copy:importlanguages');
 
 	});
 
