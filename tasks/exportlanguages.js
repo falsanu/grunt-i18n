@@ -79,9 +79,9 @@ module.exports = function(grunt) {
 		grunt.log.writeln("creating .po-files for languages: " + languages);
 		grunt.log.writeln("merging new messages in existing .po-files for languages: " + languages);
 
-		grunt.loadNpmTasks('grunt-mkdir');
-		grunt.loadNpmTasks('grunt-xgettext');
-		grunt.loadNpmTasks('grunt-i18n-abide');
+		// grunt.loadNpmTasks('grunt-mkdir');
+		// grunt.loadNpmTasks('grunt-xgettext');
+		// grunt.loadNpmTasks('grunt-i18n-abide');
 
 
 
