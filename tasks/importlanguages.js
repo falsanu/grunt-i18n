@@ -27,7 +27,6 @@ module.exports = function(grunt) {
 			paths: {
 				pathToConfig: 'test/languages.json',
 				source: 'test/src',
-				translations: 'test/src/i18n',
 				i18n: {
 					base: 'i18n',
 					templates: 'test/i18n/templates/LC_MESSAGES',
