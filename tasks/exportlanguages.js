@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
-	require('load-grunt-tasks')(grunt);
+	// require('load-grunt-tasks')(grunt);
 
 	grunt.registerMultiTask('exportlanguages', 'Create .po/.pot-Files from translations.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
@@ -84,9 +84,9 @@ module.exports = function(grunt) {
 		grunt.log.writeln("creating .po-files for languages: " + languages);
 		grunt.log.writeln("merging new messages in existing .po-files for languages: " + languages);
 
-		// grunt.loadNpmTasks('grunt-mkdir');
-		// grunt.loadNpmTasks('grunt-xgettext');
-		// grunt.loadNpmTasks('grunt-i18n-abide');
+		grunt.loadNpmTasks('grunt-mkdir');
+		grunt.loadNpmTasks('grunt-xgettext');
+		grunt.loadNpmTasks('grunt-i18n-abide');
 
 
 

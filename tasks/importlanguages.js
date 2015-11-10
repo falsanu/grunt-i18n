@@ -18,7 +18,7 @@ var nopFilter = function(filename) {
 
 module.exports = function(grunt) {
 
-	require('load-grunt-tasks')(grunt);
+	// require('load-grunt-tasks')(grunt);
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
