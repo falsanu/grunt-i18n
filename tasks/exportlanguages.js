@@ -18,11 +18,12 @@ var nopFilter = function(filename) {
 
 module.exports = function(grunt) {
 
-	require('../node_modules/grunt-xgettext/tasks/xgettext.js')(grunt);
-	require('../node_modules/grunt-i18n-abide/tasks/abidecreate.js')(grunt);
-	require('../node_modules/grunt-i18n-abide/tasks/abidemerge.js')(grunt);
-
 	grunt.registerMultiTask('exportlanguages', 'Create .po/.pot-Files from translations.', function() {
+
+		require('grunt-xgettext/tasks/xgettext.js')(grunt);
+		require('grunt-i18n-abide/tasks/abidecreate.js')(grunt);
+		require('grunt-i18n-abide/tasks/abidemerge.js')(grunt);
+
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
 			enableAbideMerge:false,
